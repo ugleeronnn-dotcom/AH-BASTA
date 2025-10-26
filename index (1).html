@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>eyron.ali</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffe6f2;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1 {
+            color: #ff1493;
+            margin-top: 50px;
+        }
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 20px;
+        }
+        button:hover {
+            background-color: #ff1493;
+        }
+        #videoContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        video {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            font-size: 24px;
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Performance Task in GenMath</h1>
+    <button id="confessBtn">Click Here! </button>
+    <div id="videoContainer">
+        <video id="confessionVideo" controls loop>
+            <source src="confess.mp4" type="video/mp4">
+            
+        </video>
+    </div>
+<p>eyron.alicante</p>
+    <script>
+
+        function createHeart() {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.innerHTML = '❤️';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDelay = Math.random() * 2 + 's';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 3000);
+        }
+
+
+        document.getElementById('confessBtn').addEventListener('click', function() {
+            const videoContainer = document.getElementById('videoContainer');
+            const video = document.getElementById('confessionVideo');
+
+
+            videoContainer.style.display = 'block';
+
+
+            video.play();
+
+
+            setInterval(createHeart, 500);
+        });
+    </script>
+</body>
+</html>
